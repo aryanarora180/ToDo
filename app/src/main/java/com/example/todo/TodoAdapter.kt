@@ -8,7 +8,7 @@ import com.example.todo.db.Todo
 
 class TodoAdapter : RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
 
-    lateinit var deleteListener: () -> Unit
+    lateinit var deleteListener: (Todo) -> Unit
 
     var data = listOf<Todo>()
         set(value) {
@@ -33,7 +33,7 @@ class TodoAdapter : RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
             titleText.text = todo.title
             descriptionText.text = todo.description
 
-            deleteImage.setOnClickListener { deleteListener }
+            deleteImage.setOnClickListener { deleteListener(todo) }
         }
     }
 
